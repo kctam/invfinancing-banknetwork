@@ -1,0 +1,51 @@
+# invfinancing-banknetwork
+Invoice Financing demo on a Bank Network using Hyperledger Fabric
+
+The Bank Network is composed of two banks (organizations), Alpha and Beta. Each bank has two peer nodes.
+
+After git clone this repo, one can start working the demonstration.
+
+## Step 1: bring up everything
+```
+cd invfinancing-banknetwork
+./starteverything.sh
+```
+
+## Step 2: Enrol user-alpha and user-beta in wallet
+```
+node enrollAdmin-alpha.js
+node registerUser-alpha.js
+
+node enrollAdmin-beta.js
+node registerUser-beta.js
+
+ls wallet
+```
+
+## Step 3: Perform client applications.
+Substitute *bank* with **alpha** or **beta** to reflect which bank runs the client application.
+
+Initialize a new invoice for a company: `node initInv-bank.js <company> <invno> <invamount>`. For example,
+```
+node initInv-alpha.js Alice inv-bob001 10000
+```
+
+Query an existing invoice: `node queryInv-bank.js <company> <invno>`. For example,
+```
+node queryInv-alpha.js Alice inv-bob001
+```
+
+Request loan on an existing invoice: `node requestLoan-bank.js <company> <invno> <loanamt>`. For example,
+```
+node requestLoan-alpha.js Alice inv-bob001 7000
+```
+
+You can try any combination of command, simulating query from other bank, or company applies amount exceeding the invoice amount, etc.
+
+
+## Step 4: Clean up
+```
+./teardowneverything.sh
+```
+
+**End**
