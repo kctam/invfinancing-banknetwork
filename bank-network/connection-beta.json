@@ -1,0 +1,58 @@
+{
+    "name": "first-network-beta",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Beta",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Beta": {
+            "mspid": "BetaMSP",
+            "peers": [
+                "peer0.beta.example.com",
+                "peer1.beta.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.beta.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.beta.example.com": {
+            "url": "grpcs://localhost:9051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/beta.example.com/tlsca/tlsca.beta.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.beta.example.com"
+            }
+        },
+        "peer1.beta.example.com": {
+            "url": "grpcs://localhost:10051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/beta.example.com/tlsca/tlsca.beta.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.beta.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.beta.example.com": {
+            "url": "https://localhost:8054",
+            "caName": "ca-beta",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/beta.example.com/tlsca/tlsca.beta.example.com-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

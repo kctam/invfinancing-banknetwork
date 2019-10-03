@@ -1,0 +1,58 @@
+{
+    "name": "first-network-alpha",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Alpha",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Alpha": {
+            "mspid": "AlphaMSP",
+            "peers": [
+                "peer0.alpha.example.com",
+                "peer1.alpha.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.alpha.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.alpha.example.com": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/alpha.example.com/tlsca/tlsca.alpha.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.alpha.example.com"
+            }
+        },
+        "peer1.alpha.example.com": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/alpha.example.com/tlsca/tlsca.alpha.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.alpha.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.alpha.example.com": {
+            "url": "https://localhost:7054",
+            "caName": "ca-alpha",
+            "tlsCACerts": {
+                "path": "crypto-config/peerOrganizations/alpha.example.com/tlsca/tlsca.alpha.example.com-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
