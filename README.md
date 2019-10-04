@@ -1,11 +1,16 @@
-# invfinancing-banknetwork
+# Demonstration of Invoice Financing on a Bank Network
+
 Invoice Financing demo on a Bank Network using Hyperledger Fabric
 
 The Bank Network is composed of two banks (organizations), Alpha and Beta. Each bank has two peer nodes.
 
-After git clone this repo, one can start working the demonstration.
+## Step 0: prepare a Fabric Node
+Following the steps for a fabric node, which includes the prerequisite, fabric-samples and hyperledger fabric images.
+```
+cd fabric-samples
+```
 
-## Step 1: bring up everything
+## Step 1: bring up everything for demonstration
 ```
 cd invfinancing-banknetwork
 ./starteverything.sh
