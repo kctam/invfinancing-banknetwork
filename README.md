@@ -10,8 +10,12 @@ After git clone this repo, one can start working the demonstration.
 cd invfinancing-banknetwork
 ./starteverything.sh
 ```
+## Step 2: install the required SDK
+```
+npm install
+```
 
-## Step 2: Enrol user-alpha and user-beta in wallet
+## Step 3: Enrol user-alpha and user-beta in wallet
 ```
 node enrollAdmin-alpha.js
 node registerUser-alpha.js
@@ -22,7 +26,7 @@ node registerUser-beta.js
 ls wallet
 ```
 
-## Step 3: Perform client applications.
+## Step 4: Perform client applications.
 Substitute *bank* with **alpha** or **beta** to reflect which bank runs the client application.
 
 Initialize a new invoice for a company: `node initInv-bank.js <company> <invno> <invamount>`. For example,
@@ -43,7 +47,7 @@ node requestLoan-alpha.js Alice inv-bob001 7000
 You can try any combination of command, simulating query from other bank, or company applies amount exceeding the invoice amount, etc.
 
 
-## Step 4: Clean up
+## Step 5: Clean up
 ```
 ./teardowneverything.sh
 ```
